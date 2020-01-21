@@ -1,7 +1,8 @@
-import React, {useReducer} from 'react'
+import React, {useReducer, useState} from 'react'
 import {initialState, TodoReducer} from '../reducers/TodoReducer'
 import Todo from './Todo'
 import styled from 'styled-components'
+import moment from 'moment'
 
 const Container = styled.div`
   display: flex;
@@ -11,15 +12,17 @@ const Container = styled.div`
 `;
 
 const TodoList = (props) => {
+    const [doneTime, setDoneTime] = useState('');
     const complete = e => {
         e.preventDefault();
         props.dispatch({type: 'MARK_COMPLETED', payload: e.target.id})
+        setDoneTime("completed: " + moment().calendar());
       }
     console.log("hi from todoList", props.state);
     return (
         <Container>
         {props.state.map(todo => {
-          return <Todo complete={complete} todo={todo}/>
+          return <Todo doneTime={doneTime} complete={complete} todo={todo}/>
         })}
       </Container>
     )
