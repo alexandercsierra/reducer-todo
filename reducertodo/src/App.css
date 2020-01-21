@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  background-image: url('./imgs/background.jpg');
+  background-size: cover;
+  background-position: 50% 50%;
+  height: 100vh;
+  color: white;
 }
 
 .App-logo {
@@ -38,5 +43,19 @@
 }
 
 .done{
-  background: green;
+  background: #218838;
+  border: 1px solid white;
+  width: 20%;
+  cursor: pointer;
+  margin: 4%;
+  text-decoration: line-through;
+}
+
+.notDone{
+  background: #5A6268;
+  border: 1px solid white;
+  width: 20%;
+  box-shadow: 0.3em 0.3em 1em rgba(255,255,255,0.3);
+  cursor: pointer;
+  margin: 4%;
 }

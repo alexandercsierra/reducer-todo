@@ -1,5 +1,14 @@
 import React, {useReducer} from 'react'
 import {initialState, TodoReducer} from '../reducers/TodoReducer'
+import Todo from './Todo'
+import styled from 'styled-components'
+
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+`;
 
 const TodoList = (props) => {
     const complete = e => {
@@ -8,13 +17,11 @@ const TodoList = (props) => {
       }
     console.log("hi from todoList", props.state);
     return (
-        <div>
+        <Container>
         {props.state.map(todo => {
-          return <div
-          className={`${todo.completed ? 'done' : ''}`}
-          id={todo.id} onClick={complete}>{todo.item}</div>
+          return <Todo complete={complete} todo={todo}/>
         })}
-      </div>
+      </Container>
     )
 }
 
